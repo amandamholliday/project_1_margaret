@@ -1,3 +1,21 @@
-* {
-    background-color: orchid;
+body {
+    background-image: url(https://themerkle.com/wp-content/uploads-new/2017/02/shutterstock_324439487.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.modal {
+    background-color: white;
+    padding: 30px;
+  width: 50vw;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  top: 45%;
+  transform: translateY(-45%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  /* display: none; */
 }
