@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="style.css">
     <!-- <link rel="icon" href="favicon.ico?" type="image/x-icon"> -->
     <title>The Traveler: A Game</title>
+    <script defer src="app.js"></script>
 </head>
 <body>
     <h1>The Traveler</h1>
+    <button class="start">START GAME</button>
     <div class="modal">
         <h2>Welcome, Traveler!</h2>
             <h3>You are stuck in a teleport and need to escape. In order to do so, you must correctly identify your locations!</h3>
@@ -18,6 +20,10 @@
             <h2>Good luck!</h2>
             <button class="travel">TRAVEL</button>
     </div>
-    <script defer src="app.js"></script>
+    <div class="location-buttons">
+        <button id='first'></button>
+        <button id='second'></button>
+        <button id='third'></button>
+    </div>
 </body>
 </html>

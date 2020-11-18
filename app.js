@@ -33,8 +33,10 @@ console.log("yes I'm connected!");
 //////// dom nodes ////////////
 // const modal = document.querySelector(".modal");
 // const travel = document.querySelector(".travel");
+const beginButton = document.querySelector(".start");
+const modal = document.querySelector(".modal");
 
-/////////// create player class /////////////
+////////////////////////////////////// create player class /////////////////////////////////
 class Player {
     constructor(time, correct, wrong) {
     this.time = time;
@@ -56,7 +58,9 @@ class Player {
 
 }
 
-//////// global vars /////////////
+/// create a player 2 class to make it two player!!!
+
+/////////////////////////////////// global vars /////////////////////////////////////////////
 // an array of 20 locations (photo URLS):
 const travelLocations = [
     "https://i.imgur.com/7GjJ8ua.png", 
@@ -75,16 +79,29 @@ const buttonLocationsImg1 = [
 ];
 
 
+const questions = [
+    {
+      image: "https://i.imgur.com/7GjJ8ua.png",
+      correctAnswer: "New Zealand",
+      answer: ["New Zealand", "California", "Ireland"]
+    },
+    {
+      image: "image.jpeg",
+      correctAnswer: "new york",
+      answer: ["new zealad", "new york", "la"]
+    }
+  ]
 
 // make an array for the randomly made choices 
 const randomChoice = [];
 
-////////// functions //////////////
+
+
+///////////////////////////////////// functions /////////////////////////////////////////////
 
 // begin game modal:
 const toggleModal = () => {
     modal.classList.toggle("open");
-    // modal.remove();
 }
 
 /// somehow need to get the 3 buttons to randomly generate
@@ -94,7 +111,7 @@ const toggleModal = () => {
 let numChoice = {
     currentChoice: null
 }
-//// this is 
+//// this is a template for now:
 /// make a loop that loops over travelLocations array randomly
 // for(let i = 0 to numChoices)
 for (let i = 0; i > travelLocations.length; i++) {
@@ -104,10 +121,13 @@ for (let i = 0; i > travelLocations.length; i++) {
   randomChoice.push(travelLocations)[randomNum];
 }
 console.log(randomChoice);
-
-
 // for (let i = 0; i < travelLocations.length; i++)
 
+
+// if randomized travelLocations equals travelLocations[0];
+    /// loop over the array that corresponds to it
+    /// the strings in the array will display on each button
+    /// identify which string is correct, then:
 //// this displays when user selects their choice:
 if (userChoice === correctChoice) {
     displayResult(`Correct! You are in ${correctChoice}!`)
@@ -122,5 +142,6 @@ if (userChoice === correctChoice) {
 
 
 
-////////// event listeners /////////
+///////////////////////////////////// event listeners ///////////////////////////////////
 // travel.addEventListener("click", toggleModal);
+beginButton.addEventListener("click", toggleModal);
