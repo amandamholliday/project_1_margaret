@@ -36,109 +36,99 @@ class Player {
 
 const questions = [
     {
-      image: "https://i.imgur.com/7GjJ8ua.png",
+      image: "",
       correctAnswer: "New Zealand",
       answer: ["New Zealand", "California", "Ireland"]
     },
     {
-      image: "https://www.mapcrunch.com/imghd/876714_f3e6a50b.jpg",
+     image: "",
       correctAnswer: "Malasia",
       answer: ["Thailand", "Malasia", "Turkey"]
     },
     {
-        image: "https://www.mapcrunch.com/imghd/828328_9653d921.jpg",
+       image: "images/france1.jpg",
         correctAnswer: "France",
         answer: ["France", "Switzerland", "Belgium"]
     },
     {
-        image: "https://www.mapcrunch.com/imghd/876610_e2e7cc56.jpg",
+       image: "",
         correctAnswer: "Utah",
         answer: ["Idaho", "Arizona", "Utah"]
     },
     {
-        image: "https://www.mapcrunch.com/imghd/876572_a80dd3d3.jpg",
+       image: "",
         correctAnswer: "Tokyo",
         answer: ["Tokyo", "Hong Kong", "Bangkok"]
     },
     {
-        image: "https://www.mapcrunch.com/imghd/828280_b5a4ed40.jpg",
+       image: "",
         correctAnswer: "Australia",
         answer: ["Virgin Islands", "Australia", "New Zealand"]
     },
     {
-       // image: "https://www.mapcrunch.com/imghd/828111_c187231c.jpg",
+        image: "image/rio9.jpg",
         correctAnswer: "Rio de Janeiro",
         answer: ["Belize", "Mexico", "Rio de Janeiro"]
     },
     {
-      //  image: "https://www.mapcrunch.com/imghd/828060_bbc9e41f.jpg",
+       image: "images/norway10.jpg",
         correctAnswer: "Norway",
         answer: ["Norway", "Denmark", "Scotland"]
     },
     {
-       // image: "https://www.mapcrunch.com/imghd/828055_234d6055.jpg",
+       image: "images/mongolia11.jpg",
         correctAnswer: "Mongolia",
         answer: ["Saudi Arabia", "Mongolia", "Chile"]
     },
     {
-       // image: "https://www.mapcrunch.com/imghd/873775_df57445f.jpg",
+       image: "images/antarctica12.jpg",
         correctAnswer: "Antarctica",
         answer: ["Iceland", "Greenland", "Antarctica"]
     },
     {
-       // image: "https://www.mapcrunch.com/imghd/873195_1e64fb32.jpg",
+       image: "images/arizona13.jpg",
         correctAnswer: "Arizona",
         answer: ["Philadelphia", "Arizona", "Las Vegas"]
     },
     {
-       // image: "https://www.mapcrunch.com/imghd/873079_b809927c.jpg",
+       image: "images/taiwan14.jpg",
         correctAnswer: "Taiwan",
         answer: ["Taiwan", "Japan", "Thailand"]
     },
     {
-     //   image: "https://www.mapcrunch.com/imghd/873089_f355ceac.jpg",
-        correctAnswer: "new york",
-        answer: ["new zealad", "new york", "la"]
-    },
-    {
-     //   image: "https://www.mapcrunch.com/imghd/873089_f355ceac.jpg",
+       image: "images/greenland15.jpg",
         correctAnswer: "Greenland",
         answer: ["Iceland", "Greenland", "Montana"]
     },
     {
-      //  image: "https://www.mapcrunch.com/imghd/872796_9264ceaa.jpg",
+       image: "images/montenegro16.jpg",
         correctAnswer: "Montenegro",
         answer: ["Montenegro", "Brazil", "Cuba"]
     },
     {
-      //  image: "https://www.mapcrunch.com/imghd/872740_62e485a3.jpg",
+       image: "images/spain17.jpg",
         correctAnswer: "Spain",
         answer: ["Spain", "Italy", "Portugal"]
     },
     {
-      //  image: "https://www.mapcrunch.com/imghd/872683_6f0ac14d.jpg",
+       image: "images/california18.jpg",
         correctAnswer: "California",
         answer: ["California", "Washington", "Pennslyvania"]
     },
     {
-      //  image: "https://www.mapcrunch.com/imghd/871864_56ec0671.jpg",
+       image: "images/uk.jpg",
         correctAnswer: "United Kingdom",
         answer: ["Scotland", "United Kingdom", "Ireland"]
     },
     {
-        image: "19image.jpeg",
-        correctAnswer: "new york",
-        answer: ["new zealad", "new york", "la"]
-    },
-    {
-      //  image: "https://www.mapcrunch.com/imghd/871748_a1b79b40.jpg",
+       image: "images/france20.jpg",
         correctAnswer: "France",
         answer: ["Germany", "France", "Turkey"]
     },
     {
-       // image: "https://www.mapcrunch.com/imghd/871396_e8b9c5db.jpg",
+       image: "images/ireland21.jpg",
         correctAnswer: "Ireland",
-        answer: ["Ireland", "France", "la"]
+        answer: ["Ireland", "France", "Scotland"]
     },
     {
         image: "22image.jpeg",
