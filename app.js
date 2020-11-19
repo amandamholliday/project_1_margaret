@@ -1,34 +1,5 @@
 console.log("yes I'm connected!");
 
-//// Welcome screen; displays a modal with directions; make modal!
-//// On the modal, there is a "TRAVEL" button
-//// When clicked, the travel button starts the game
-/////////// (if extra time available, display carousel at beginning of game)
-////////////// (this allows user to pick their own traveler character!)
-//// Create a for loop for the game that loops over random locations in an array
-//// Each travel location will randomly appear on the screen's background
-//// There will be a total of 20 randomized locations (array)
-//// There will be 3 multiple choice buttons to choose from
-//// make 1 button a correct choice, 2 are inncorrect
-//// If user clicks correct choice:
-    /// update score count;
-    //// display "correct!"
-    ///////// else, if user clicks incorrect choice
-    /// update score count;
-    //// display "incorrect!"
-//// After first round, user can click "travel" again
-//// clicking "travel" again will start loop to display another random location
-//// if user gets 10 correct:
-    /// display "win game" modal / background
-    /// option to choose bonus round (button)
-        /// create bonus round (if i have time)
-    /// option to end game (reset to beginning)
-//// if user gets 5 incorrect:
-    //// display "game over"
-    //// button to dtart game over (reset to beginning)
-
-
-
 
 //////// dom nodes ////////////
 // const modal = document.querySelector(".modal");
@@ -61,22 +32,6 @@ class Player {
 /// create a player 2 class to make it two player!!!
 
 /////////////////////////////////// global vars /////////////////////////////////////////////
-// an array of 20 locations (photo URLS):
-const travelLocations = [
-    "https://i.imgur.com/7GjJ8ua.png", 
-    "img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8",
-    "img9", "img10", "img11", "img12", "img13", "img14", "img15", "img16", "img17", "img18",
-    "img19", "img20"
-];
-
-/// create arrays for EACH travelLocation
-/// ***each string in array will appear on each of the 3 buttons in random order***
-/// (this may be a lot of unnessesary work lol)
-/// but it may be easier?
-
-const buttonLocationsImg1 = [
-    "New Zealand", "California", "Ireland"
-];
 
 
 const questions = [
@@ -86,15 +41,135 @@ const questions = [
       answer: ["New Zealand", "California", "Ireland"]
     },
     {
-      image: "image.jpeg",
-      correctAnswer: "new york",
-      answer: ["new zealad", "new york", "la"]
+      image: "https://www.mapcrunch.com/imghd/876714_f3e6a50b.jpg",
+      correctAnswer: "Malasia",
+      answer: ["Thailand", "Malasia", "Turkey"]
+    },
+    {
+        image: "https://www.mapcrunch.com/imghd/828328_9653d921.jpg",
+        correctAnswer: "France",
+        answer: ["France", "Switzerland", "Belgium"]
+    },
+    {
+        image: "https://www.mapcrunch.com/imghd/876610_e2e7cc56.jpg",
+        correctAnswer: "Utah",
+        answer: ["Idaho", "Arizona", "Utah"]
+    },
+    {
+        image: "https://www.mapcrunch.com/imghd/876572_a80dd3d3.jpg",
+        correctAnswer: "Tokyo",
+        answer: ["Tokyo", "Hong Kong", "Bangkok"]
+    },
+    {
+        image: "https://www.mapcrunch.com/imghd/828280_b5a4ed40.jpg",
+        correctAnswer: "Australia",
+        answer: ["Virgin Islands", "Australia", "New Zealand"]
+    },
+    {
+       // image: "https://www.mapcrunch.com/imghd/828111_c187231c.jpg",
+        correctAnswer: "Rio de Janeiro",
+        answer: ["Belize", "Mexico", "Rio de Janeiro"]
+    },
+    {
+      //  image: "https://www.mapcrunch.com/imghd/828060_bbc9e41f.jpg",
+        correctAnswer: "Norway",
+        answer: ["Norway", "Denmark", "Scotland"]
+    },
+    {
+       // image: "https://www.mapcrunch.com/imghd/828055_234d6055.jpg",
+        correctAnswer: "Mongolia",
+        answer: ["Saudi Arabia", "Mongolia", "Chile"]
+    },
+    {
+       // image: "https://www.mapcrunch.com/imghd/873775_df57445f.jpg",
+        correctAnswer: "Antarctica",
+        answer: ["Iceland", "Greenland", "Antarctica"]
+    },
+    {
+       // image: "https://www.mapcrunch.com/imghd/873195_1e64fb32.jpg",
+        correctAnswer: "Arizona",
+        answer: ["Philadelphia", "Arizona", "Las Vegas"]
+    },
+    {
+       // image: "https://www.mapcrunch.com/imghd/873079_b809927c.jpg",
+        correctAnswer: "Taiwan",
+        answer: ["Taiwan", "Japan", "Thailand"]
+    },
+    {
+     //   image: "https://www.mapcrunch.com/imghd/873089_f355ceac.jpg",
+        correctAnswer: "new york",
+        answer: ["new zealad", "new york", "la"]
+    },
+    {
+     //   image: "https://www.mapcrunch.com/imghd/873089_f355ceac.jpg",
+        correctAnswer: "Greenland",
+        answer: ["Iceland", "Greenland", "Montana"]
+    },
+    {
+      //  image: "https://www.mapcrunch.com/imghd/872796_9264ceaa.jpg",
+        correctAnswer: "Montenegro",
+        answer: ["Montenegro", "Brazil", "Cuba"]
+    },
+    {
+      //  image: "https://www.mapcrunch.com/imghd/872740_62e485a3.jpg",
+        correctAnswer: "Spain",
+        answer: ["Spain", "Italy", "Portugal"]
+    },
+    {
+      //  image: "https://www.mapcrunch.com/imghd/872683_6f0ac14d.jpg",
+        correctAnswer: "California",
+        answer: ["California", "Washington", "Pennslyvania"]
+    },
+    {
+      //  image: "https://www.mapcrunch.com/imghd/871864_56ec0671.jpg",
+        correctAnswer: "United Kingdom",
+        answer: ["Scotland", "United Kingdom", "Ireland"]
+    },
+    {
+        image: "19image.jpeg",
+        correctAnswer: "new york",
+        answer: ["new zealad", "new york", "la"]
+    },
+    {
+      //  image: "https://www.mapcrunch.com/imghd/871748_a1b79b40.jpg",
+        correctAnswer: "France",
+        answer: ["Germany", "France", "Turkey"]
+    },
+    {
+       // image: "https://www.mapcrunch.com/imghd/871396_e8b9c5db.jpg",
+        correctAnswer: "Ireland",
+        answer: ["Ireland", "France", "la"]
+    },
+    {
+        image: "22image.jpeg",
+        correctAnswer: "new york",
+        answer: ["new zealad", "new york", "la"]
+    },
+    {
+        image: "23image.jpeg",
+        correctAnswer: "new york",
+        answer: ["new zealad", "new york", "la"]
+    },
+    {
+        image: "24image.jpeg",
+        correctAnswer: "new york",
+        answer: ["new zealad", "new york", "la"]
+    },
+    {
+        image: "25image.jpeg",
+        correctAnswer: "new york",
+        answer: ["new zealad", "new york", "la"]
+    },
+    {
+        image: "26image.jpeg",
+        correctAnswer: "new york",
+        answer: ["new zealad", "new york", "la"]
     }
   ]
 
 // make an array for the randomly made choices 
-const randomChoice = [];
-
+// const randomChoice = [];
+ 
 
 
 ///////////////////////////////////// functions /////////////////////////////////////////////
@@ -103,44 +178,6 @@ const randomChoice = [];
 const toggleModal = () => {
     modal.classList.toggle("open");
 }
-
-/// somehow need to get the 3 buttons to randomly generate
-/// but one button will correspond to the random image?
-/// create 3 button IDs with the DOM
-/// this is an object for the player choice (buttons)
-let numChoice = {
-    currentChoice: null
-}
-//// this is a template for now:
-/// make a loop that loops over travelLocations array randomly
-// for(let i = 0 to numChoices)
-for (let i = 0; i > travelLocations.length; i++) {
-  // const randNum = Math.random() * countries.length
-  const randomNum = Math.random() * travelLocations.length;
-  // randChoices.push countries[randnum]
-  randomChoice.push(travelLocations)[randomNum];
-}
-console.log(randomChoice);
-// for (let i = 0; i < travelLocations.length; i++)
-
-
-// if randomized travelLocations equals travelLocations[0];
-    /// loop over the array that corresponds to it
-    /// the strings in the array will display on each button
-    /// identify which string is correct, then:
-//// this displays when user selects their choice:
-if (userChoice === correctChoice) {
-    displayResult(`Correct! You are in ${correctChoice}!`)
-    //// update correct scoreboard with 1 point
-    } else {
-    displayResult(`Wrong! You are actually in ${correctChoice}. Try again.`)
-    //// update wrong scoreboard with 1 point
-};
-
-
-
-
-
 
 ///////////////////////////////////// event listeners ///////////////////////////////////
 // travel.addEventListener("click", toggleModal);
