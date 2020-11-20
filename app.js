@@ -28,6 +28,14 @@ class Player {
             Wrong: <span>${this.wrong}</span>
         </div>`
     }
+    scoreCorrect () {
+        this.correct++;
+        this.updateCurrentStats();
+    }
+    scoreWrong () {
+        this.wrong++
+        this.updateCurrentStats();
+    }       
 
 }
 
@@ -141,9 +149,7 @@ const questions = [
  
 let correct = 0;
 let wrong = 0;
-
-const randomNum = Math.floor(Math.random() * questions.length);
-console.log(randomNum);
+let randomNum = Math.floor(Math.random() * questions.length);
 
 // i need to make a variable for randomized answers
 
@@ -159,45 +165,52 @@ console.log(shuffleAnswers);
 const toggleModal = () => {
     modal.classList.toggle("open");
 }
+// for (let i = 0; i < questions.length; i++) {
 
-// updates background image to random image when user clicks "travel"
-const travelLocations = () => {
+    // updates background image to random image when user clicks "travel"
+    const travelLocations = () => {
     document.body.style.backgroundImage = `url(${questions[randomNum].image}`;
     modal.remove();
-}
-
-firstButton.innerText = `${questions[randomNum].answer[0]}`;
-secondButton.innerText = `${questions[randomNum].answer[1]}`;
-thirdButton.innerText = `${questions[randomNum].answer[2]}`;
-
-// three functions that display answers on buttons:
-const makeComparisonFirst = () => {
-    if (firstButton.innerText === questions[randomNum].correctAnswer) {
-        alert(`correct!`);
-    } else {
-        alert(`wrong answer`)
-    }
-}
-
-const makeComparisonSecond = () => {
-    if (secondButton.innerText === questions[randomNum].correctAnswer) {
-        alert(`correct!`);
-    } else {
-        alert(`wrong answer`);
-    }
 };
 
-const makeComparisonThird = () => {
-    if (thirdButton.innerText === questions[randomNum].correctAnswer) {
-        alert(`correct!`);
-    } else {
-        alert(`wrong answer`);
-    }
-}
+    // three functions that display answers on buttons:
+    const makeComparisonFirst = () => {
+        if (firstButton.innerText === questions[randomNum].correctAnswer) {
+            alert(`correct!`);
+            // update scorecount
+        } else {
+            alert(`wrong answer`)
+            //update scorecount
+        }
+        beginGame ();
+    };
+
+    const makeComparisonSecond = () => {
+        if (secondButton.innerText === questions[randomNum].correctAnswer) {
+            alert(`correct!`);
+            // update score count
+        } else {
+            alert(`wrong answer`);
+            // update score count
+        }
+        beginGame ();
+    };
+
+    const makeComparisonThird = () => {
+        if (thirdButton.innerText === questions[randomNum].correctAnswer) {
+            alert(`correct!`);
+            // update score count
+        } else {
+            alert(`wrong answer`);
+            // update score count
+        }   
+        beginGame ();
+    };
+// };
 //
-for (let i = 0; i < questions.length; i++) {
-    console.log(questions[i]);
-}
+// for (let i = 0; i < questions.length; i++) {
+//     console.log(questions[i]);
+// }
 
 // if (userChoice === correctAnswer) {
 //     displayResult(`Correct! You are in ${correctAnswer}!`)
@@ -206,7 +219,13 @@ for (let i = 0; i < questions.length; i++) {
 //     displayResult(`Wrong! You are actually in ${correctAnswer}. Try again.`)
 //     //// update wrong scoreboard with 1 point
 
-
+function beginGame () {
+    randomNum = Math.floor(Math.random() * questions.length);
+    firstButton.innerText = `${questions[randomNum].answer[0]}`;
+    secondButton.innerText = `${questions[randomNum].answer[1]}`;
+    thirdButton.innerText = `${questions[randomNum].answer[2]}`;
+    travelLocations ();
+}
 ///////////////////////////////////// event listeners ///////////////////////////////////
 travel.addEventListener("click", travelLocations);
 beginButton.addEventListener("click", toggleModal);
