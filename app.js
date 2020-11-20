@@ -117,6 +117,9 @@ const questions = [
 let correct = 0;
 let wrong = 0;
 
+const randomNum = Math.floor(Math.random() * questions.length);
+console.log(randomNum);
+
 ///////////////////////////////////// functions /////////////////////////////////////////////
 
 // begin game modal:
@@ -125,7 +128,7 @@ const toggleModal = () => {
 }
 
 const travelLocations = () => {
-    document.body.style.backgroundImage = `url(${questions[0].image})`;
+    document.body.style.backgroundImage = `url(${questions[randomNum].image}`;
     modal.remove();
 }
 
