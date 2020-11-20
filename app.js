@@ -53,9 +53,19 @@ const questions = [
         answer: ["Greece", "Egypt", "Tunisia"]
     },
     {
+        image: "images/unitedarab04.jpg",
+        correctAnswer: "United Arab Emirates",
+        answer: ["United Arab Emirates", "Iran", "Australia"]
+    },
+    {
         image: "images/portugal04.jpg",
         correctAnswer: "Portugal",
         answer: ["Portugal", "Italy", "Bulgaria"]
+    },
+    {
+        image: "images/greenland05.jpg",
+        correctAnswer: "Greenland",
+        answer: ["Norway", "Greenland", "Netherlands"]
     },
     {
         image: "images/rio9.jpg",
@@ -135,12 +145,13 @@ let wrong = 0;
 const randomNum = Math.floor(Math.random() * questions.length);
 console.log(randomNum);
 
-// i need to make a variable for randomized correctAnswers
+// i need to make a variable for randomized answers
 
-// const randomThree = Math.floor(Math.random() * questions.answer[0, 1, 2]);
+// const randomThree = Math.floor(Math.random() * questions[randomNum].answer['']);
+// console.log(randomThree);
 
-// const shuffleAnswers = Math.floor(Math.random() * questions.answer[randomThree]);
-// console.log(shuffleAnswers);
+const shuffleAnswers = Math.floor(Math.random() * questions[randomNum].answer);
+console.log(shuffleAnswers);
 
 ///////////////////////////////////// functions /////////////////////////////////////////////
 
@@ -155,13 +166,13 @@ const travelLocations = () => {
     modal.remove();
 }
 
-firstButton.innerText = `${questions[0].answer[0]}`;
-secondButton.innerText = `${questions[0].answer[1]}`;
-thirdButton.innerText = `${questions[0].answer[2]}`;
+firstButton.innerText = `${questions[randomNum].answer[0]}`;
+secondButton.innerText = `${questions[randomNum].answer[1]}`;
+thirdButton.innerText = `${questions[randomNum].answer[2]}`;
 
 // three functions that display answers on buttons:
 const makeComparisonFirst = () => {
-    if (firstButton.innerText === questions[0].correctAnswer) {
+    if (firstButton.innerText === questions[randomNum].correctAnswer) {
         alert(`correct!`);
     } else {
         alert(`wrong answer`)
@@ -169,7 +180,7 @@ const makeComparisonFirst = () => {
 }
 
 const makeComparisonSecond = () => {
-    if (secondButton.innerText === questions[0].correctAnswer) {
+    if (secondButton.innerText === questions[randomNum].correctAnswer) {
         alert(`correct!`);
     } else {
         alert(`wrong answer`);
@@ -177,7 +188,7 @@ const makeComparisonSecond = () => {
 };
 
 const makeComparisonThird = () => {
-    if (thirdButton.innerText === questions[0].correctAnswer) {
+    if (thirdButton.innerText === questions[randomNum].correctAnswer) {
         alert(`correct!`);
     } else {
         alert(`wrong answer`);
