@@ -2,10 +2,12 @@ console.log("yes I'm connected!");
 
 
 //////// dom nodes ////////////
-// const modal = document.querySelector(".modal");
-// const travel = document.querySelector(".travel");
+const travel = document.querySelector(".travel");
 const beginButton = document.querySelector(".start");
 const modal = document.querySelector(".modal");
+const firstButton = document.getElementById('first');
+const secondButton = document.getElementById('second');
+const thirdButton = document.getElementById('third');
 
 ////////////////////////////////////// create player class /////////////////////////////////
 class Player {
@@ -36,34 +38,9 @@ class Player {
 
 const questions = [
     {
-      image: "",
-      correctAnswer: "New Zealand",
-      answer: ["New Zealand", "California", "Ireland"]
-    },
-    {
-     image: "",
-      correctAnswer: "Malasia",
-      answer: ["Thailand", "Malasia", "Turkey"]
-    },
-    {
        image: "images/france1.jpg",
         correctAnswer: "France",
         answer: ["France", "Switzerland", "Belgium"]
-    },
-    {
-       image: "",
-        correctAnswer: "Utah",
-        answer: ["Idaho", "Arizona", "Utah"]
-    },
-    {
-       image: "",
-        correctAnswer: "Tokyo",
-        answer: ["Tokyo", "Hong Kong", "Bangkok"]
-    },
-    {
-       image: "",
-        correctAnswer: "Australia",
-        answer: ["Virgin Islands", "Australia", "New Zealand"]
     },
     {
         image: "image/rio9.jpg",
@@ -116,7 +93,7 @@ const questions = [
         answer: ["California", "Washington", "Pennslyvania"]
     },
     {
-       image: "images/uk.jpg",
+       image: "images/uk19.jpg",
         correctAnswer: "United Kingdom",
         answer: ["Scotland", "United Kingdom", "Ireland"]
     },
@@ -130,37 +107,15 @@ const questions = [
         correctAnswer: "Ireland",
         answer: ["Ireland", "France", "Scotland"]
     },
-    {
-        image: "22image.jpeg",
-        correctAnswer: "new york",
-        answer: ["new zealad", "new york", "la"]
-    },
-    {
-        image: "23image.jpeg",
-        correctAnswer: "new york",
-        answer: ["new zealad", "new york", "la"]
-    },
-    {
-        image: "24image.jpeg",
-        correctAnswer: "new york",
-        answer: ["new zealad", "new york", "la"]
-    },
-    {
-        image: "25image.jpeg",
-        correctAnswer: "new york",
-        answer: ["new zealad", "new york", "la"]
-    },
-    {
-        image: "26image.jpeg",
-        correctAnswer: "new york",
-        answer: ["new zealad", "new york", "la"]
-    }
-  ]
+  ];
+
+
 
 // make an array for the randomly made choices 
 // const randomChoice = [];
  
-
+let correct = 0;
+let wrong = 0;
 
 ///////////////////////////////////// functions /////////////////////////////////////////////
 
@@ -169,6 +124,54 @@ const toggleModal = () => {
     modal.classList.toggle("open");
 }
 
+const travelLocations = () => {
+    document.body.style.backgroundImage = `url(${questions[0].image})`;
+    modal.remove();
+}
+
+firstButton.innerText = `${questions[0].answer[0]}`;
+secondButton.innerText = `${questions[0].answer[1]}`;
+thirdButton.innerText = `${questions[0].answer[2]}`;
+
+const makeComparisonFirst = () => {
+    if (firstButton.innerText === questions[0].correctAnswer) {
+        alert(`correct!`);
+    } else {
+        alert(`wrong!`)
+    }
+}
+
+const makeComparisonSecond = () => {
+    if (secondButton.innerText === questions[0].correctAnswer) {
+        alert(`correct!`);
+    } else {
+        alert(`no you dumb`);
+    }
+};
+
+const makeComparisonThird = () => {
+    if (thirdButton.innerText === questions[0].correctAnswer) {
+        alert(`correct!`);
+    } else {
+        alert(`no you dumb`);
+    }
+}
+
+for (let i = 0; i < questions.length; i++) {
+    console.log(questions[i]);
+}
+
+// if (userChoice === correctAnswer) {
+//     displayResult(`Correct! You are in ${correctAnswer}!`)
+//     //// update correct scoreboard with 1 point
+//     } else {
+//     displayResult(`Wrong! You are actually in ${correctAnswer}. Try again.`)
+//     //// update wrong scoreboard with 1 point
+
+
 ///////////////////////////////////// event listeners ///////////////////////////////////
-// travel.addEventListener("click", toggleModal);
+travel.addEventListener("click", travelLocations);
 beginButton.addEventListener("click", toggleModal);
+firstButton.addEventListener('click', makeComparisonFirst);
+secondButton.addEventListener('click', makeComparisonSecond);
+thirdButton.addEventListener('click', makeComparisonThird);
