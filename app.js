@@ -43,7 +43,22 @@ const questions = [
         answer: ["France", "Switzerland", "Belgium"]
     },
     {
-        image: "image/rio9.jpg",
+        image: "images/utah02.jpg",
+        correctAnswer: "Utah",
+        answer: ["Colorado", "Utah", "Arizona"]
+    },
+    {
+        image: "images/tunisia03.jpg",
+        correctAnswer: "Tunisia",
+        answer: ["Greece", "Egypt", "Tunisia"]
+    },
+    {
+        image: "images/portugal04.jpg",
+        correctAnswer: "Portugal",
+        answer: ["Portugal", "Italy", "Bulgaria"]
+    },
+    {
+        image: "images/rio9.jpg",
         correctAnswer: "Rio de Janeiro",
         answer: ["Belize", "Mexico", "Rio de Janeiro"]
     },
@@ -120,6 +135,13 @@ let wrong = 0;
 const randomNum = Math.floor(Math.random() * questions.length);
 console.log(randomNum);
 
+// i need to make a variable for randomized correctAnswers
+
+// const randomThree = Math.floor(Math.random() * questions.answer[0, 1, 2]);
+
+// const shuffleAnswers = Math.floor(Math.random() * questions.answer[randomThree]);
+// console.log(shuffleAnswers);
+
 ///////////////////////////////////// functions /////////////////////////////////////////////
 
 // begin game modal:
@@ -127,6 +149,7 @@ const toggleModal = () => {
     modal.classList.toggle("open");
 }
 
+// updates background image to random image when user clicks "travel"
 const travelLocations = () => {
     document.body.style.backgroundImage = `url(${questions[randomNum].image}`;
     modal.remove();
@@ -136,11 +159,12 @@ firstButton.innerText = `${questions[0].answer[0]}`;
 secondButton.innerText = `${questions[0].answer[1]}`;
 thirdButton.innerText = `${questions[0].answer[2]}`;
 
+// three functions that display answers on buttons:
 const makeComparisonFirst = () => {
     if (firstButton.innerText === questions[0].correctAnswer) {
         alert(`correct!`);
     } else {
-        alert(`wrong!`)
+        alert(`wrong answer`)
     }
 }
 
@@ -148,7 +172,7 @@ const makeComparisonSecond = () => {
     if (secondButton.innerText === questions[0].correctAnswer) {
         alert(`correct!`);
     } else {
-        alert(`no you dumb`);
+        alert(`wrong answer`);
     }
 };
 
@@ -156,10 +180,10 @@ const makeComparisonThird = () => {
     if (thirdButton.innerText === questions[0].correctAnswer) {
         alert(`correct!`);
     } else {
-        alert(`no you dumb`);
+        alert(`wrong answer`);
     }
 }
-
+//
 for (let i = 0; i < questions.length; i++) {
     console.log(questions[i]);
 }
