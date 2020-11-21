@@ -164,6 +164,7 @@ console.log(shuffleAnswers);
 // begin game modal:
 const toggleModal = () => {
     modal.classList.toggle("open");
+    beginButton.remove();
 }
 // for (let i = 0; i < questions.length; i++) {
 
@@ -227,7 +228,7 @@ function beginGame () {
     travelLocations ();
 }
 ///////////////////////////////////// event listeners ///////////////////////////////////
-travel.addEventListener("click", travelLocations);
+travel.addEventListener("click", beginGame);
 beginButton.addEventListener("click", toggleModal);
 firstButton.addEventListener('click', makeComparisonFirst);
 secondButton.addEventListener('click', makeComparisonSecond);
