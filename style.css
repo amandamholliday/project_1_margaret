@@ -25,6 +25,10 @@ body {
   }
 
 .location-buttons {
-    margin: 0 auto;
-    position: relative;
+    text-align: center;
   }
+
+.stats {
+  text-align: center;
+  color: white;
+}

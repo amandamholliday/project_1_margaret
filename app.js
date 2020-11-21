@@ -8,6 +8,7 @@ const modal = document.querySelector(".modal");
 const firstButton = document.getElementById('first');
 const secondButton = document.getElementById('second');
 const thirdButton = document.getElementById('third');
+const currentStatsContainer = document.querySelector('.timer')
 
 ////////////////////////////////////// create player class /////////////////////////////////
 class Player {
@@ -18,7 +19,7 @@ class Player {
     }
     updateCurrentStats() {
         currentStatsContainer.innerHTML = `
-        <div class="time">
+        <div class="timer">
             Timer: <span>${this.time}</span>
         </div>
         <div class="correct">
@@ -27,16 +28,30 @@ class Player {
         <div class="wrong">
             Wrong: <span>${this.wrong}</span>
         </div>`
+
+    }
+    gameStart() {
+        currentStatsContainer.appendChild('stats')
+        this.updateCurrentStats();
+        this.countDown();
+        this.scoreCorrect();
+        this.scoreWrong();
     }
     scoreCorrect () {
         this.correct++;
         this.updateCurrentStats();
+
     }
     scoreWrong () {
         this.wrong++
         this.updateCurrentStats();
-    }       
-
+    }  
+    countDown () {
+        setTimeout(()=> {
+        this.time--;
+        this.updateCurrentStats();
+    }, 100);
+}
 }
 
 /// create a player 2 class to make it two player!!!
@@ -172,16 +187,16 @@ const toggleModal = () => {
     const travelLocations = () => {
     document.body.style.backgroundImage = `url(${questions[randomNum].image}`;
     modal.remove();
+    gameStart();
 };
 
     // three functions that display answers on buttons:
     const makeComparisonFirst = () => {
         if (firstButton.innerText === questions[randomNum].correctAnswer) {
             alert(`correct!`);
-            // update scorecount
+            scoreCorrect();
         } else {
             alert(`wrong answer`)
-            //update scorecount
         }
         beginGame ();
     };
@@ -189,10 +204,8 @@ const toggleModal = () => {
     const makeComparisonSecond = () => {
         if (secondButton.innerText === questions[randomNum].correctAnswer) {
             alert(`correct!`);
-            // update score count
         } else {
             alert(`wrong answer`);
-            // update score count
         }
         beginGame ();
     };
@@ -200,10 +213,8 @@ const toggleModal = () => {
     const makeComparisonThird = () => {
         if (thirdButton.innerText === questions[randomNum].correctAnswer) {
             alert(`correct!`);
-            // update score count
         } else {
             alert(`wrong answer`);
-            // update score count
         }   
         beginGame ();
     };
@@ -226,6 +237,7 @@ function beginGame () {
     secondButton.innerText = `${questions[randomNum].answer[1]}`;
     thirdButton.innerText = `${questions[randomNum].answer[2]}`;
     travelLocations ();
+    gameStart();
 }
 ///////////////////////////////////// event listeners ///////////////////////////////////
 travel.addEventListener("click", beginGame);
