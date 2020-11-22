@@ -1,5 +1,6 @@
 console.log("yes I'm connected!");
 
+// let currentCountdown = false;
 
 //////// dom nodes ////////////
 const travel = document.querySelector(".travel");
@@ -32,11 +33,15 @@ class Player {
 
     }
     gameStart() {
-        currentStatsContainer.appendChild('stats')
+        // currentStatsContainer.appendChild('stats');
         this.updateCurrentStats();
         this.countDown();
         this.scoreCorrect();
         this.scoreWrong();
+    }
+    gameNewRound() {
+        // currentStatsContainer.appendChild('stats');
+        this.updateCurrentStats();
     }
     scoreCorrect () {
         this.correct++;
@@ -49,17 +54,24 @@ class Player {
     }  
     countDown () {
         setInterval(()=> {
-        this.time--;
-        this.updateCurrentStats();
-        while (this.time === 0) {
-            this.time + 10;
-            this.wrong++;
+            // if currentCountdown is false, do this:
+            // turn currentCountdown to true
+            // if (currentCountdown === false) {
+            //     currentCountdown = true;
+            //     this.time--;
+            // } 
+            this.time--;
             this.updateCurrentStats();
-            beginGame();
-        }
-    }, 1000);
+            if (this.time < 1) {
+                this.time = this.time + 10;
+                this.wrong++;
+                this.updateCurrentStats();
+                beginNewRound();
+            } // come back to this tomorrow because Ben fucked everything up
+       }, 1000)
     }
 }
+// make an end game function1!!!
 
 /// create a player 2 class to make it two player!!!
 
@@ -96,6 +108,21 @@ const questions = [
         image: "images/greenland05.jpg",
         correctAnswer: "Greenland",
         answer: ["Norway", "Greenland", "Netherlands"]
+    },
+    {
+        image: "images/canada06.jpg",
+        correctAnswer: "Canada",
+        answer: ["Ireland", "Canada", "Russia"]
+    },
+    {
+        image: "images/estonia07.jpg",
+        correctAnswer: "Estonia",
+        answer: ["Amsterdam", "Russia", "Estonia"]
+    },
+    {
+        image: "images/ireland08.jpg",
+        correctAnswer: "Ireland",
+        answer: ["Ireland", "United Kingdom", "Germany"]
     },
     {
         image: "images/rio9.jpg",
@@ -162,6 +189,56 @@ const questions = [
         correctAnswer: "Ireland",
         answer: ["Ireland", "France", "Scotland"]
     },
+    {
+        image: "images/mexico22.jpg",
+        correctAnswer: "Mexico",
+        answer: ["Spain", "El Salvador", "Mexico"]
+    },
+    {
+        image: "images/bermuda23.jpg",
+        correctAnswer: "Bermuda",
+        answer: ["Bermuda", "Columbia", "Florida"]
+    },
+    {
+        image: "images/norway24.jpg",
+        correctAnswer: "Norway",
+        answer: ["Alaska", "Norway", "Utah"]
+    },
+    {
+        image: "images/italy25.jpg",
+        correctAnswer: "Italy",
+        answer: ["Italy", "France", "Seattle"]
+    },
+    {
+        image: "images/philly26.jpg",
+        correctAnswer: "Philadelphia",
+        answer: ["Portland", "Boston", "Philadelphia"]
+    },
+    {
+        image: "images/malta27.jpg",
+        correctAnswer: "Malta",
+        answer: ["Malta", "Greece", "Libya"]
+    },
+    {
+        image: "images/iceland28.jpg",
+        correctAnswer: "Iceland",
+        answer: ["Iceland", "Australia", "Colorado"]
+    },
+    {
+        image: "images/france29.jpg",
+        correctAnswer: "France",
+        answer: ["Sweden", "Denver", "France"]
+    },
+    {
+        image: "images/thailand30.jpg",
+        correctAnswer: "Thailand",
+        answer: ["Hong Kong", "Thailand", "California"]
+    },
+    {
+        image: "images/atlanta31.jpg",
+        correctAnswer: "Atlanta",
+        answer: ["Los Angeles", "New York", "Atlanta"]
+    },
   ];
 
 
@@ -194,10 +271,10 @@ const toggleModal = () => {
 
     // updates background image to random image when user clicks "travel"
     const travelLocations = () => {
-    document.body.style.backgroundImage = `url(${questions[randomNum].image}`;
-    modal.remove();
-    newPlayer.countDown();
-};
+        document.body.style.backgroundImage = `url(${questions[randomNum].image}`;
+        modal.remove();
+        newPlayer.countDown();
+    };
     // three functions that display answers on buttons:
     const makeComparisonFirst = () => {
         if (firstButton.innerText === questions[randomNum].correctAnswer) {
@@ -207,7 +284,7 @@ const toggleModal = () => {
             alert(`wrong answer`)
             newPlayer.scoreWrong();
         }
-        beginGame ();
+        beginNewRound ();
     };
 
     const makeComparisonSecond = () => {
@@ -218,7 +295,7 @@ const toggleModal = () => {
             alert(`wrong answer`);
             newPlayer.scoreWrong();
         }
-        beginGame ();
+        beginNewRound ();
     };
 
     const makeComparisonThird = () => {
@@ -229,7 +306,7 @@ const toggleModal = () => {
             alert(`wrong answer`);
             newPlayer.scoreWrong();
         }   
-        beginGame ();
+        beginNewRound ();
     };
 
     // if (this.correct === 10) {
@@ -259,6 +336,17 @@ function beginGame () {
     thirdButton.innerText = `${questions[randomNum].answer[2]}`;
     travelLocations ();
     newPlayer.gameStart();
+    // currentStatsContainer("open");
+}
+
+function beginNewRound () {
+    randomNum = Math.floor(Math.random() * questions.length);
+    firstButton.innerText = `${questions[randomNum].answer[0]}`;
+    secondButton.innerText = `${questions[randomNum].answer[1]}`;
+    thirdButton.innerText = `${questions[randomNum].answer[2]}`;
+    travelLocations ();
+    newPlayer.gameNewRound();
+    // currentStatsContainer("open");
 }
 ///////////////////////////////////// event listeners ///////////////////////////////////
 travel.addEventListener("click", beginGame);
