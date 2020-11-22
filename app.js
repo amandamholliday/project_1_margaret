@@ -290,6 +290,7 @@ const toggleModal = () => {
             newPlayer.scoreWrong();
         }
         beginNewRound ();
+        endGame ();
     };
 
     const makeComparisonSecond = () => {
@@ -301,6 +302,7 @@ const toggleModal = () => {
             newPlayer.scoreWrong();
         }
         beginNewRound ();
+        endGame ();
     };
 
     const makeComparisonThird = () => {
@@ -312,6 +314,7 @@ const toggleModal = () => {
             newPlayer.scoreWrong();
         }   
         beginNewRound ();
+        endGame ();
     };
 
     // if (this.correct === 10) {
@@ -355,9 +358,9 @@ function beginNewRound () {
 }
 
 function endGame () {
-    if (newPlayer.scoreCorrect = 10) {
+    if (newPlayer.correct >= 10) {
         alert(`CONGRATULATIONS! You have won the game!`);
-    } else if (newPlayer.scoreWrong = 5) {
+    } else if (newPlayer.wrong >= 5) {
         alert(`You have lost the game. You are stuck in the teleport forever and will probably die. Try again!`)
     }
 }
