@@ -9,71 +9,8 @@ const modal = document.querySelector(".modal");
 const firstButton = document.getElementById('first');
 const secondButton = document.getElementById('second');
 const thirdButton = document.getElementById('third');
-const currentStatsContainer = document.querySelector('.stats')
+const currentStatsContainer = document.querySelector('.stats');
 
-////////////////////////////////////// create player class /////////////////////////////////
-class Player {
-    constructor(time, correct, wrong) {
-    this.time = time;
-    this.correct = correct;
-    this.wrong = wrong;
-    }
-    updateCurrentStats() {
-        currentStatsContainer.innerHTML = `
-        <h2>Where am I?</h2>
-        <div class="timer">
-            Timer: <span>${this.time}</span>
-        </div>
-        <div class="correct">
-            Correct: <span>${this.correct}</span>
-        </div>
-        <div class="wrong">
-            Wrong: <span>${this.wrong}</span>
-        </div>`
-
-    }
-    gameStart() {
-        // currentStatsContainer.appendChild('stats');
-        this.updateCurrentStats();
-        this.countDown();
-        this.scoreCorrect();
-        this.scoreWrong();
-    }
-    gameNewRound() {
-        // currentStatsContainer.appendChild('stats');
-        this.updateCurrentStats();
-    }
-    scoreCorrect () {
-        this.correct++;
-        this.updateCurrentStats();
-
-    }
-    scoreWrong () {
-        this.wrong++
-        this.updateCurrentStats();
-    }  
-    countDown () {
-        setInterval(()=> {
-            // if currentCountdown is false, do this:
-            // turn currentCountdown to true
-            // if (currentCountdown === false) {
-            //     currentCountdown = true;
-            //     this.time--;
-            // } 
-            this.time--;
-            this.updateCurrentStats();
-            if (this.time < 1) {
-                this.time = this.time + 10;
-                this.wrong++;
-                this.updateCurrentStats();
-                beginNewRound();
-            } // come back to this tomorrow because Ben fucked everything up
-       }, 1000)
-    }
-}
-// make an end game function1!!!
-
-/// create a player 2 class to make it two player!!!
 
 /////////////////////////////////// global vars /////////////////////////////////////////////
 
@@ -243,6 +180,74 @@ const questions = [
 
 
 
+////////////////////////////////////// create player class /////////////////////////////////
+class Player {
+    constructor(time, correct, wrong) {
+    this.time = time;
+    this.correct = correct;
+    this.wrong = wrong;
+    }
+    updateCurrentStats() {
+        currentStatsContainer.innerHTML = `
+        <h2>Where am I?</h2>
+        <div class="timer">
+            Timer: <span>${this.time}</span>
+        </div>
+        <div class="correct">
+            Correct: <span>${this.correct}</span>
+        </div>
+        <div class="wrong">
+            Wrong: <span>${this.wrong}</span>
+        </div>`
+
+    }
+    gameStart() {
+        // currentStatsContainer.appendChild('stats');
+        this.updateCurrentStats();
+        this.countDown();
+        // this.scoreCorrect();
+        // this.scoreWrong();
+    }
+    gameNewRound() {
+        // currentStatsContainer.appendChild('stats');
+        this.updateCurrentStats();
+        this.time = 11;
+    }
+    scoreCorrect () {
+        this.correct++;
+        this.updateCurrentStats();
+
+    }
+    scoreWrong () {
+        this.wrong++
+        this.updateCurrentStats();
+    }  
+    countDown () {
+        console.log('countdown running');
+        setInterval(()=> {
+            // if currentCountdown is false, do this:
+            // turn currentCountdown to true
+            // if (currentCountdown === false) {
+            //     currentCountdown = true;
+            //     this.time--;
+            // } 
+            this.time--;
+            this.updateCurrentStats();
+            if (this.time < 1) {
+                this.time = this.time + 10;
+                this.wrong++;
+                this.updateCurrentStats();
+                beginNewRound();
+                console.log('time resetting');
+            } 
+       }, 1000)
+    }
+}
+// make an end game function1!!!
+
+/// create a player 2 class to make it two player!!!
+
+
 // make an array for the randomly made choices 
 // const randomChoice = [];
 const newPlayer = new Player(10, 0, 0);
@@ -273,7 +278,7 @@ const toggleModal = () => {
     const travelLocations = () => {
         document.body.style.backgroundImage = `url(${questions[randomNum].image}`;
         modal.remove();
-        newPlayer.countDown();
+        // newPlayer.countDown(); // this was making the timer go cray
     };
     // three functions that display answers on buttons:
     const makeComparisonFirst = () => {
@@ -347,6 +352,14 @@ function beginNewRound () {
     travelLocations ();
     newPlayer.gameNewRound();
     // currentStatsContainer("open");
+}
+
+function endGame () {
+    if (newPlayer.scoreCorrect = 10) {
+        alert(`CONGRATULATIONS! You have won the game!`);
+    } else if (newPlayer.scoreWrong = 5) {
+        alert(`You have lost the game. You are stuck in the teleport forever and will probably die. Try again!`)
+    }
 }
 ///////////////////////////////////// event listeners ///////////////////////////////////
 travel.addEventListener("click", beginGame);
