@@ -5,8 +5,10 @@ body {
 }
 
 .modal {
-    background-color: white;
+  font-family: 'Kufam', cursive;
+    background-color: white transparent;
     padding: 30px;
+  color: white;
   width: 50vw;
   max-width: 500px;
   text-align: center;
@@ -25,10 +27,12 @@ body {
   }
 
 .location-buttons {
+  font-family: 'Kufam', cursive;
     text-align: center;
   }
 
 .stats {
+  font-family: 'Kufam', cursive;
   text-align: center;
   color: white;
 }

@@ -7,8 +7,11 @@
     <!-- <link rel="icon" href="favicon.ico?" type="image/x-icon"> -->
     <title>The Traveler: A Game</title>
     <script defer src="app.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kufam:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button class="start">START GAME</button>
     <div class ="stats">
         <h2>Where am I?</h2>
         <div class="timer">
@@ -21,12 +24,11 @@
             Wrong: <span>0</span>
         </div>
     </div>
-    <button class="start">START GAME</button>
     <div class="modal">
         <h2>Welcome, Traveler!</h2>
             <h3>You are stuck in a teleport and need to escape. In order to do so, you must correctly identify your locations!</h3>
             <h3>Identifying 10 locations correctly wins the game.</h3>
-            <h3>After 3 incorrect identifications, you will lose the game and will be a forever lost traveler. :(</h3>
+            <h3>After 5 incorrect identifications, you will lose the game and will be stuck in a teleport forever. :(</h3>
             <h3>You have 10 seconds to identify each location.</h3>
             <h2>Good luck!</h2>
             <button class="travel">TRAVEL</button>

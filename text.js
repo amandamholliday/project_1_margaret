@@ -32,20 +32,20 @@
 /// somehow need to get the 3 buttons to randomly generate
 /// but one button will correspond to the random image?
 /// create 3 button IDs with the DOM
-/// this is an object for the player choice (buttons)
-let numChoice = {
-    currentChoice: null
-}
+// /// this is an object for the player choice (buttons)
+// let numChoice = {
+//     currentChoice: null
+// }
 //// this is a template for now:
 /// make a loop that loops over travelLocations array randomly
 // for(let i = 0 to numChoices)
-for (let i = 0; i < travelLocations.length; i++) {
-  // const randNum = Math.random() * countries.length
-  const randomNum = Math.random() * travelLocations.length;
-  // randChoices.push countries[randnum]
-  randomChoice.push(travelLocations)[randomNum];
-}
-console.log(randomChoice);
+// for (let i = 0; i < travelLocations.length; i++) {
+//   // const randNum = Math.random() * countries.length
+//   const randomNum = Math.random() * travelLocations.length;
+//   // randChoices.push countries[randnum]
+//   randomChoice.push(travelLocations)[randomNum];
+// }
+// console.log(randomChoice);
 // for (let i = 0; i < travelLocations.length; i++)
 
 
@@ -54,13 +54,13 @@ console.log(randomChoice);
     /// the strings in the array will display on each button
     /// identify which string is correct, then:
 //// this displays when user selects their choice:
-if (userChoice === correctAnswer) {
-    displayResult(`Correct! You are in ${correctAnswer}!`)
-    //// update correct scoreboard with 1 point
-    } else {
-    displayResult(`Wrong! You are actually in ${correctAnswer}. Try again.`)
-    //// update wrong scoreboard with 1 point
-};
+// if (userChoice === correctAnswer) {
+//     displayResult(`Correct! You are in ${correctAnswer}!`)
+//     //// update correct scoreboard with 1 point
+//     } else {
+//     displayResult(`Wrong! You are actually in ${correctAnswer}. Try again.`)
+//     //// update wrong scoreboard with 1 point
+// };
 
 
-let points = 0
+// let points = 0

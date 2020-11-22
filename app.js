@@ -8,7 +8,7 @@ const modal = document.querySelector(".modal");
 const firstButton = document.getElementById('first');
 const secondButton = document.getElementById('second');
 const thirdButton = document.getElementById('third');
-const currentStatsContainer = document.querySelector('.timer')
+const currentStatsContainer = document.querySelector('.stats')
 
 ////////////////////////////////////// create player class /////////////////////////////////
 class Player {
@@ -161,6 +161,7 @@ const questions = [
 
 // make an array for the randomly made choices 
 // const randomChoice = [];
+const newPlayer = new Player(10, 0, 0);
  
 let correct = 0;
 let wrong = 0;
@@ -187,16 +188,15 @@ const toggleModal = () => {
     const travelLocations = () => {
     document.body.style.backgroundImage = `url(${questions[randomNum].image}`;
     modal.remove();
-    gameStart();
 };
-
     // three functions that display answers on buttons:
     const makeComparisonFirst = () => {
         if (firstButton.innerText === questions[randomNum].correctAnswer) {
             alert(`correct!`);
-            scoreCorrect();
+            newPlayer.scoreCorrect();
         } else {
             alert(`wrong answer`)
+            newPlayer.scoreWrong();
         }
         beginGame ();
     };
@@ -204,8 +204,10 @@ const toggleModal = () => {
     const makeComparisonSecond = () => {
         if (secondButton.innerText === questions[randomNum].correctAnswer) {
             alert(`correct!`);
+            newPlayer.scoreCorrect();
         } else {
             alert(`wrong answer`);
+            newPlayer.scoreWrong();
         }
         beginGame ();
     };
@@ -213,12 +215,18 @@ const toggleModal = () => {
     const makeComparisonThird = () => {
         if (thirdButton.innerText === questions[randomNum].correctAnswer) {
             alert(`correct!`);
+            newPlayer.scoreCorrect();
         } else {
             alert(`wrong answer`);
+            newPlayer.scoreWrong();
         }   
         beginGame ();
     };
-// };
+
+    // if (this.correct === 10) {
+    //     // win game screen
+    //     // bonus round
+    // }
 //
 // for (let i = 0; i < questions.length; i++) {
 //     console.log(questions[i]);
@@ -237,7 +245,7 @@ function beginGame () {
     secondButton.innerText = `${questions[randomNum].answer[1]}`;
     thirdButton.innerText = `${questions[randomNum].answer[2]}`;
     travelLocations ();
-    gameStart();
+    newPlayer.gameStart();
 }
 ///////////////////////////////////// event listeners ///////////////////////////////////
 travel.addEventListener("click", beginGame);
