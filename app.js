@@ -19,6 +19,7 @@ class Player {
     }
     updateCurrentStats() {
         currentStatsContainer.innerHTML = `
+        <h2>Where am I?</h2>
         <div class="timer">
             Timer: <span>${this.time}</span>
         </div>
@@ -47,11 +48,17 @@ class Player {
         this.updateCurrentStats();
     }  
     countDown () {
-        setTimeout(()=> {
+        setInterval(()=> {
         this.time--;
         this.updateCurrentStats();
-    }, 100);
-}
+        while (this.time === 0) {
+            this.time + 10;
+            this.wrong++;
+            this.updateCurrentStats();
+            beginGame();
+        }
+    }, 1000);
+    }
 }
 
 /// create a player 2 class to make it two player!!!
@@ -162,7 +169,8 @@ const questions = [
 // make an array for the randomly made choices 
 // const randomChoice = [];
 const newPlayer = new Player(10, 0, 0);
- 
+
+let time = 10;
 let correct = 0;
 let wrong = 0;
 let randomNum = Math.floor(Math.random() * questions.length);
@@ -188,6 +196,7 @@ const toggleModal = () => {
     const travelLocations = () => {
     document.body.style.backgroundImage = `url(${questions[randomNum].image}`;
     modal.remove();
+    newPlayer.countDown();
 };
     // three functions that display answers on buttons:
     const makeComparisonFirst = () => {
@@ -238,6 +247,10 @@ const toggleModal = () => {
 //     } else {
 //     displayResult(`Wrong! You are actually in ${correctAnswer}. Try again.`)
 //     //// update wrong scoreboard with 1 point
+
+if (newPlayer.correct === 10) {
+    alert(`YOU WON!!!!`);
+}
 
 function beginGame () {
     randomNum = Math.floor(Math.random() * questions.length);
