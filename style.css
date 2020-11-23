@@ -71,10 +71,15 @@ body {
 
 .start {
     font-family: 'Kufam', cursive;
-    font-size: large;
-    position: relative;
+    font-size: 40px;
     border-color: gray;
     color:black;
     box-shadow: 0 0 40px 40px turquoise inset, 0 0 0 0 turquoise;
     transition: all 150ms ease-in-out;
+    position: fixed;
+    top: 45%;
+    transform: translateY(-45%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
