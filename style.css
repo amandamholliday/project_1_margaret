@@ -36,9 +36,45 @@ body {
   font-family: 'Kufam', cursive;
   text-align: center;
   color: white;
+  font-size: large;
+  box-shadow: black;
   /* display: none; */
 }
 /* 
 .stats.open {
   display: block;
 } */
+
+#first {
+    font-family: 'Kufam', cursive;
+    border-color: gray;
+    color:black;
+    box-shadow: 0 0 40px 40px turquoise inset, 0 0 0 0 turquoise;
+    transition: all 150ms ease-in-out;
+}
+
+#third {
+  font-family: 'Kufam', cursive;
+  border-color: gray;
+  color:black;
+  box-shadow: 0 0 40px 40px turquoise inset, 0 0 0 0 turquoise;
+  transition: all 150ms ease-in-out;
+}
+
+#second {
+  font-family: 'Kufam', cursive;
+  border-color: gray;
+  color:black;
+  box-shadow: 0 0 40px 40px turquoise inset, 0 0 0 0 turquoise;
+  transition: all 150ms ease-in-out;
+}
+
+.start {
+    font-family: 'Kufam', cursive;
+    font-size: large;
+    position: relative;
+    border-color: gray;
+    color:black;
+    box-shadow: 0 0 40px 40px turquoise inset, 0 0 0 0 turquoise;
+    transition: all 150ms ease-in-out;
+}
