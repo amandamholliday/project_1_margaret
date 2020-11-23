@@ -176,6 +176,11 @@ const questions = [
         correctAnswer: "Atlanta",
         answer: ["Los Angeles", "New York", "Atlanta"]
     },
+    // {
+    //     images: "",
+    //     correctAnswer: "Newark, Delaware",
+    //     answer: ["", "New Jersey", "Newark, Delaware"]
+    // }
   ];
 
 
@@ -221,7 +226,10 @@ class Player {
     scoreWrong () {
         this.wrong++
         this.updateCurrentStats();
-    }  
+    } 
+    gameOver() {
+
+    }
     countDown () {
         console.log('countdown running');
         setInterval(()=> {
@@ -272,9 +280,8 @@ const toggleModal = () => {
     modal.classList.toggle("open");
     beginButton.remove();
 }
-// for (let i = 0; i < questions.length; i++) {
 
-    // updates background image to random image when user clicks "travel"
+// updates background image to random image when user clicks "travel"
     const travelLocations = () => {
         document.body.style.backgroundImage = `url(${questions[randomNum].image}`;
         modal.remove();
@@ -317,26 +324,7 @@ const toggleModal = () => {
         endGame ();
     };
 
-    // if (this.correct === 10) {
-    //     // win game screen
-    //     // bonus round
-    // }
-//
-// for (let i = 0; i < questions.length; i++) {
-//     console.log(questions[i]);
-// }
-
-// if (userChoice === correctAnswer) {
-//     displayResult(`Correct! You are in ${correctAnswer}!`)
-//     //// update correct scoreboard with 1 point
-//     } else {
-//     displayResult(`Wrong! You are actually in ${correctAnswer}. Try again.`)
-//     //// update wrong scoreboard with 1 point
-
-if (newPlayer.correct === 10) {
-    alert(`YOU WON!!!!`);
-}
-
+// begins game!
 function beginGame () {
     randomNum = Math.floor(Math.random() * questions.length);
     firstButton.innerText = `${questions[randomNum].answer[0]}`;
@@ -344,9 +332,9 @@ function beginGame () {
     thirdButton.innerText = `${questions[randomNum].answer[2]}`;
     travelLocations ();
     newPlayer.gameStart();
-    // currentStatsContainer("open");
 }
 
+// restarts the round after begin game
 function beginNewRound () {
     randomNum = Math.floor(Math.random() * questions.length);
     firstButton.innerText = `${questions[randomNum].answer[0]}`;
@@ -354,15 +342,26 @@ function beginNewRound () {
     thirdButton.innerText = `${questions[randomNum].answer[2]}`;
     travelLocations ();
     newPlayer.gameNewRound();
-    // currentStatsContainer("open");
 }
 
+/// end game function
 function endGame () {
     if (newPlayer.correct >= 10) {
-        alert(`CONGRATULATIONS! You have won the game!`);
+        alert(`CONGRATULATIONS! You have won the game! Click to continue guessing, or exit browser to leave.`);
     } else if (newPlayer.wrong >= 5) {
-        alert(`You have lost the game. You are stuck in the teleport forever and will probably die. Try again!`)
+        alert(`You have lost the game. You are stuck in the teleport forever and will probably die.`);
+        displayEnd();
     }
+}
+
+function displayEnd () {
+    document.body.style.backgroundImage = `url(images/teleport.jpg`;
+    currentStatsContainer.remove();
+    firstButton.remove();
+    secondButton.remove();
+    thirdButton.remove();
+    toggleModal();
+    beginGame();
 }
 ///////////////////////////////////// event listeners ///////////////////////////////////
 travel.addEventListener("click", beginGame);
