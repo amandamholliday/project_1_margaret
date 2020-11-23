@@ -175,12 +175,7 @@ const questions = [
         image: "images/atlanta31.jpg",
         correctAnswer: "Atlanta",
         answer: ["Los Angeles", "New York", "Atlanta"]
-    },
-    // {
-    //     images: "",
-    //     correctAnswer: "Newark, Delaware",
-    //     answer: ["", "New Jersey", "Newark, Delaware"]
-    // }
+    }
   ];
 
 
