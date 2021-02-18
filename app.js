@@ -248,7 +248,7 @@ class Player {
 }
 // make an end game function1!!!
 
-/// create a player 2 class to make it two player!!!
+/// create a player 2 class to make it two player(?)
 
 
 // make an array for the randomly made choices 
